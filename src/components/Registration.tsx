@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useUserContext } from "./useUserContext";
 import { supabase } from "../supabase-client";
 
 interface PropsType {
@@ -7,11 +6,8 @@ interface PropsType {
 }
 
 export function Registration({ setUserConfirm }: PropsType) {
-  const [userName, setUserName] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [userEmail, setUserEmail] = useState("");
-  const [inputNote, setInputNote] = useState("");
-  const { setUserData } = useUserContext();
 
   const signUpHandler = async () => {
     const { data, error: signUpError } = await supabase.auth.signUp({
@@ -69,15 +65,6 @@ export function Registration({ setUserConfirm }: PropsType) {
           placeholder="Password..."
           className="bg-background secondary-text focus:outline-primary px-2 rounded-2xl"
         />
-        {inputNote == "Wrong user name or password." ? (
-          <p className="text-error secondary-text">{inputNote}</p>
-        ) : inputNote == "Registration complete!" ? (
-          <p className="text-success secondary-text">{inputNote}</p>
-        ) : inputNote == "User with this name already exist" ? (
-          <p className="text-secondary-text">{inputNote}</p>
-        ) : (
-          <></>
-        )}
         <div className="flex justify-around w-full">
           <button
             onClick={signUpHandler}
