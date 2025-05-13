@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #6d28d9; /*Кнопки, заголовки, акцентные элементы*/
+  --color-secondary: #8b5cf6; /*Ховер-эффекты, второстепенные кнопки
+  */
+  --color-background: #ffffff; /*Основной фон (темно-синий)
+  */
+  --color-surface: #f1f5f9; /*Карточки, панели
+  */
+  --color-text-primary: #1e293b; /*Основной текст
+  */
+  --color-text-secondary: #64748b; /*Второстепенный текст
+  */
+  --color-success: #10b981; /*Положительные суммы
+  */
+  --color-error: #ef4444; /*Отрицательные суммы
+  */
+  --font-headline: "Inter";
+}
+
+@layer components {
+  .headline-text {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+  }
+  .main-text {
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 20px;
+  }
+  .secondary-text {
+    font-family: "Inter";
+    font-weight: 300;
+    font-size: 18px;
+  }
+}
+
+@layer utilities {
+  .theme-changing [class*="transition-"] {
+    transition-property: none !important;
+  }
+}
+
+.dark {
+  --color-primary: #7c3aed; /*Кнопки, заголовки, акцентные элементы*/
+  --color-secondary: #a78bfa; /*Ховер-эффекты, второстепенные кнопки
+  */
+  --color-background: #0f172a; /*Основной фон (темно-синий)
+  */
+  --color-surface: #1e293b; /*Карточки, панели
+  */
+  --color-text-primary: #f8fafc; /*Основной текст
+  */
+  --color-text-secondary: #94a3b8; /*Второстепенный текст
+  */
+  --color-success: #34d399; /*Положительные суммы
+  */
+  --color-error: #f87171; /*Отрицательные суммы
+  */
+}
+
+label {
+  font-family: "Inter";
+  font-weight: 300;
+  font-size: 18px;
+  padding-right: 10px;
+  color: var(--color-text-secondary);
+}
+
+input {
+  font-family: "Inter";
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE и Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
